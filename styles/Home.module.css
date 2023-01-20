@@ -1,0 +1,71 @@
+
+
+.homeHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+
+    width: 90%;
+    height: 70px;
+
+    margin-top: 15px;
+    font-weight: 700;
+}
+
+.headerButtonsWrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    vertical-align: middle;
+    gap: 15px;
+    width: 60%;
+    margin-top: 10px;
+}
+
+
+.button{
+    font-size: 15px;
+    all: unset;
+    cursor: pointer;
+    margin: 10px;
+    text-decoration: none !important;
+    color: inherit;
+}
+.loginButton{
+    font-size: 20px;
+    color: white;
+    font-weight: 700;
+    background-color: #17CE82;
+    height: 45px;
+    width: 150px;
+    border-radius: 30px;
+}
+
+.navBarButtons{
+    font-size: 20px;
+}
+
+.Hero{
+    width: 90%;
+    padding: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.heroLeft{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    font-weight: 400;
+    font-size: clamp(20px, 3.5vw, 45px);
+    
+}
+.heroImg{
+    /* max-width: 100%; */
+    width: 50%;
+    height: auto;
+}

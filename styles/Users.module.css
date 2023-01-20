@@ -1,0 +1,38 @@
+.container {
+    width: 100%;
+	margin-right:auto;
+	margin-left:auto;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+    padding-top: 50px;
+	padding-bottom: 450px;
+}
+
+.table {
+	width:100%;
+	border:1px solid 
+}
+
+.tableHeader {
+	display:flex;
+	width:100%;
+	background:#000;
+	padding: 1%;
+    color: white;
+}
+
+.tableHeaderItem {
+    flex: 1 1 20%;
+}
+
+.tableContent{
+    display:flex;
+	width:100%;
+	background:rgba(203, 202, 202, 0.3);
+	padding: 1%;
+    color: black;
+    font-style: italic;
+    text-transform: capitalize ;
+	font-size: medium;
+}

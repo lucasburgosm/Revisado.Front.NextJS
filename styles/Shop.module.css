@@ -1,0 +1,45 @@
+.shopPage{
+
+    background-color: #FCFCFC;
+    display: flex;
+
+    /* alinea verticalmente */
+    flex-direction: column;
+    align-items: center; 
+
+
+    width: 100%;
+    min-height: 100vh;
+    border-radius: 25px;
+}
+
+
+
+.shopTitle{
+    font-size: 40px;
+    font-weight: 400;
+
+    margin: 20px;
+}
+
+
+.productListContainer{
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 100px;
+    margin-left:  75px;
+    margin-right: 75px;
+    margin-bottom: 200px;
+
+    
+}
+
+.loadingDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
