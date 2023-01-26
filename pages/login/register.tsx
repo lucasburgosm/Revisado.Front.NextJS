@@ -6,7 +6,7 @@ import handleSubmitLogin from '../../src/components/handleSubmitLogin'
 
 const register  = () =>  {
 
-const url : string = "http://localhost:3001/api/auth/register"; 
+const url : string = "https://revisado-back.onrender.com/api/auth/register"; 
 const userLogin = userLoginContext();    
 
 return(

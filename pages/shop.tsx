@@ -12,11 +12,10 @@ type Props = {
    
 }
 export const getServerSideProps: GetServerSideProps<{ data: Props }> = async () => {
-  const res = await fetch('http://localhost:3001/api/products/all', {
+  const res = await fetch('https://revisado-back.onrender.com/api/products/all', {
       method: 'GET',
   });
   const data : Props = await res.json()
-
   return {
     props: {
       data,
@@ -30,7 +29,7 @@ export const getServerSideProps: GetServerSideProps<{ data: Props }> = async () 
 function shop({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) : JSX.Element {
 
 
-if (!data) return <p>No se pudo conectar con el servidor, intente mas tarde</p>
+if(!data){return <p>No se pudo conectar con el servidor, intente mas tarde</p>}  
 
 const {products, nbHits, userID, queryObject} = data;
 const productsList : JSX.Element[] = products.map((product) : JSX.Element =>{  return ( 

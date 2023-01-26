@@ -17,7 +17,7 @@ const getContent = () => {
     )}
         
 return (
-    <div className='main'>
+ 
         <div className="allPages">
             <div className='pageContainer'>
                 <div className='pageContent'>
@@ -26,8 +26,7 @@ return (
                     </UseContextLogin>
                 </div>
             </div>
-        </div>
-    </div>  
+        </div>  
 )}
 
 
