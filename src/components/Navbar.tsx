@@ -23,7 +23,7 @@ const Navbar : FC = () => {
 
 
 return(
-    <nav className="navbar-light bg-light">
+    
         <div className='homeHeader'>
                 <CustomLink dir ="/" custom={true}>
                     <Image src={revisadoLogo} alt="logo" width="200" />
@@ -44,7 +44,7 @@ return(
                 </>}   
           </div>
         </div>
-    </nav>
+  
 )}
 
 

@@ -1,7 +1,7 @@
 import {Modal, Form, Button} from 'react-bootstrap';
 import { Products  } from '../../Interface/interface';
 import handleSubmitProducts from '../utils/handleSubmitProducts';
-
+import {FC} from 'react';
 
 interface Props {
   show : boolean,
@@ -12,10 +12,11 @@ interface Props {
 
 const CustomModalFormVender : React.FC<Props> = ({ show ,handleClose, method, data } )   => {
    
-  const url : string = data ? `http://localhost:3001/api/products/${data?._id}` : `http://localhost:3001/api/products` ;
-  const dataKeys : readonly string[] = ["brand", "price", "modelName", "nameToDisplay", "details","modelNumber"] ;
 
-  const MyButton = (method : "POST" | "PATCH" | "DELETE")  => {
+  const url : string = data ? `https://revisado-back.onrender.com/api/products/${data?._id}` : `https://revisado-back.onrender.com/api/products` ;
+  const dataKeys : readonly string[] = ["brand", "price", "modelName", "nameToDisplay", "details","modelNumber"] ;
+  
+  const MyButton = (method :  "POST" | "PATCH" | "DELETE")  => {
     if(method === "POST"){return(     
     <Button variant="success"  type="submit">
       Vender

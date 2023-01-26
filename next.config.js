@@ -6,4 +6,6 @@ const nextConfig = {
   use: ['file-loader'],
 }
 
+
+
 module.exports = nextConfig

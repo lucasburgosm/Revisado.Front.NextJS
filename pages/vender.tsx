@@ -22,18 +22,23 @@ function vender() {
     const fetchAssets = async () => {
       setLoading(true);
       try { 
-        const res = await fetch('http://localhost:3001/api/products', {
+        const res = await fetch('https://revisado-back.onrender.com/api/products', {
           credentials: "include",
           headers:  { 'Authorization': `${userLogin.token}`},
         });
         const resData = await res.json();
+        if( res.status >= 400 && res.status < 499) { 
+          throw new Error(resData.msg)}
+        if( res.status >= 500) { 
+          throw new Error(resData.msg)}  
         setData(resData);
         setLoading(false);
-      } catch (error) {console.error(error)}
+      } catch (error) { 
+      console.log(error)
+      }
     }
     fetchAssets();
   }, [])
-
 
 if(userLogin?.token === null){  return (
     <div className={shopTitle} >
