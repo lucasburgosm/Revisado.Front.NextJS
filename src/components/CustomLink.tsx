@@ -17,4 +17,4 @@ return (
     </Link>)}
 
 
-export default CustomLink
+export default CustomLink;

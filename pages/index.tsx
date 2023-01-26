@@ -1,8 +1,8 @@
 import type { NextPage } from 'next'
 import styles from '../styles/Home.module.css'
 import Image from 'next/image'
-import heroImg from  "../images/heroImg.png"
-import separator1 from "../images/Separator1.svg"
+import heroImg from  '../public/heroImg.png'
+import separator1 from '../public/Separator1.svg'
 
 
 const Home: NextPage = () => {

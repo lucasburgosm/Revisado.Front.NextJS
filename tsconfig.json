@@ -13,7 +13,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "plugins": [
+      { "transform": "ts-transformer-keys/transformer" }
+    ]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/Hooks/UseForm.js", "src/components/UseForm.js"],
   "exclude": ["node_modules"]

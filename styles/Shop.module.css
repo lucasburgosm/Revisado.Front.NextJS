@@ -17,9 +17,7 @@
 
 .shopTitle{
     font-size: 40px;
-    font-weight: 400;
-
-    margin: 20px;
+    margin: 5px;
 }
 
 
@@ -29,11 +27,9 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 100px;
-    margin-left:  75px;
-    margin-right: 75px;
-    margin-bottom: 200px;
-
-    
+    margin:  70px;
+    margin-top: 20px;
+   
 }
 
 .loadingDiv{

@@ -1,6 +1,7 @@
 import { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import Product from '../src/components/Product';
 import { Products } from '../Interface/interface';
+import {Modal, Form, Button} from 'react-bootstrap';
 const {shopTitle, productListContainer } = require('../styles/Shop.module.css');
 
 type Props = {    
@@ -27,8 +28,15 @@ export const getServerSideProps: GetServerSideProps<{ data: Props }> = async () 
   // const url = "http://192.168.0.128:3001/api/products/all";
 
 function shop({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) : JSX.Element {
+
+
+if (!data) return <p>No se pudo conectar con el servidor, intente mas tarde</p>
+
 const {products, nbHits, userID, queryObject} = data;
-const newPro : JSX.Element[] = products.map((product) : JSX.Element => <Product key={product._id} props={product}/>)
+const productsList : JSX.Element[] = products.map((product) : JSX.Element =>{  return ( 
+                <Product key={product._id}  props={product}>
+                    <Button  variant="outline-secondary" >Comprar</Button>
+                </Product> )})
 
 return( 
     <> 
@@ -36,7 +44,7 @@ return(
         Productos disponibles
       </div>
       <div className={productListContainer}>
-        {newPro}
+        {productsList}
       </div>
     </>
 )}

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { userLoginContext} from "../Hooks/UseContextLogin";
 import CustomLink from './CustomLink';
-import revisadoLogo from "../../images/logo-revisado.png"
+import revisadoLogo from '../../public/logo-revisado.png'
 import Image from 'next/image'
 
 

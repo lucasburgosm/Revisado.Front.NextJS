@@ -3,18 +3,20 @@ import { useState, useEffect } from 'react';
 import { userLoginContext} from "../src/Hooks/UseContextLogin";
 const {shopTitle, productListContainer } = require('../styles/Shop.module.css')
 import CustomLink from '../src/components/CustomLink';
-import {Modal, Form, Button} from 'react-bootstrap';
+import { Button, ButtonGroup } from 'react-bootstrap';
+import CustomModalFormProducts from '../src/components/CustomModalFormProducts';
+import { Products } from '../Interface/interface';
+
 
 function vender() {
 
   const userLogin = userLoginContext();
   const [data, setData] = useState<null | any>(false);
+  const [singleProduct, setSingleProduct] =  useState<undefined | Products>(undefined);
   const [isLoading, setLoading] = useState<boolean>(false);
-  const [show, setShow] = useState(false);
-
-    
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const [show, setShow] = useState<boolean>(false);
+  const [singleShow, setSingleShow] = useState(false);
+  const [method, setMethod] = useState<"POST" | "PATCH" | "DELETE" >("POST")
 
   useEffect(() => {
     const fetchAssets = async () => {
@@ -33,71 +35,47 @@ function vender() {
   }, [])
 
 
-  if(userLogin?.token === null){  return (
+if(userLogin?.token === null){  return (
     <div className={shopTitle} >
-    Para vender, ingresa o registrate<CustomLink dir="/login/" text="Aqui!!" className='loginButton' />
+    Para vender, ingresa o registrate <CustomLink dir="/login/" text="Aqui" className="btn btn-success btn-sm " />
     </div> )
   }
-
 if (!data) return <p>No se pudo conectar con el servidor, intente mas tarde</p>
 if (isLoading) return <p>Loading...</p>
 
+  const products : Products[]   = data.Products;
+  const productList : JSX.Element[] = products?.map((product : any) : JSX.Element => {
+              const handleClick = (method : "PATCH" | "DELETE" )=> {
+                  setSingleShow(true);
+                  setSingleProduct(product);
+                  setMethod(method);
+              }
+        return (  
+              <div key={product._id}> 
+                  <Product  props={product}>
+                      <ButtonGroup aria-label="Basic example">
+                        <Button  variant="outline-secondary" >Pause</Button>
+                        <Button  variant="outline-primary" onClick={() => handleClick("PATCH") } >Edit</Button>
+                        <Button variant="outline-danger"  onClick={() => handleClick("DELETE") }>Remove</Button>
+                      </ButtonGroup>
+                  </Product>
+                  <CustomModalFormProducts key={product._id} method={method} show={singleShow} handleClose={() => setSingleShow(false)} data={singleProduct} />
+              </div> )})
 
 
 return( 
     <> 
-      <div className={shopTitle} >
-        Tus Productos
+      <div className={shopTitle}> 
+        <Button variant="success" onClick={ () => setShow(true)}> Sell new product </Button>
       </div>
-      <Button variant="success" onClick={handleShow}>
-        Agregar
-      </Button>
+      <CustomModalFormProducts show={show} handleClose={() => setShow(false)}  method='POST' />
       <div className={productListContainer}>
-        {data?.Products}
+        {productList}
       </div>
-     {CustomModal(show, handleClose)}
     </>
+   
 )}
 
-
-
-const CustomModal  = (show : boolean,handleClose : any) : JSX.Element => {
- 
-  const groupsList : string[] = ["brand", "price", "modelName", "nameToDisplay", "details"]
-  const formGroups = groupsList.map((obj, index)=> {
-    return (
-       <Form.Group className="mb-1" controlId="exampleForm.ControlInput1" key={index}>
-          <Form.Label>{`${obj.toLocaleUpperCase()}`}</Form.Label>
-            <Form.Control name={obj} />
-      </Form.Group>
-)
-  })
-
-  return (
-    <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Nuevo Producto</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form>
-           {formGroups}
-          <div className="form-group">
-            <label>Agregar Foto</label>
-            <input type="file" className="form-control-file" id="exampleFormControlFile1"/>
-          </div>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Cancelar
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Agregar
-          </Button>
-        </Modal.Footer>
-      </Modal>
-  )
-}
 
 
 export default vender;

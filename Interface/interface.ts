@@ -22,6 +22,9 @@ export interface Products  {
     updatedAt?:string,
     __v?: number,
 }
+
+export const products : Products = {
+}
     
 export interface UserLoggin { 
     id?: number | null  
