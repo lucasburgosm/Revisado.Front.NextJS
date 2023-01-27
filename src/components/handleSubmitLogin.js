@@ -24,7 +24,9 @@ const  handleSubmitLogin = async (event, url, userLogin, register = false) => {
       }
       const response = await fetch(url, options(data))
       const result = await response.json() 
+      
         if( response.status >= 400 && response.status < 600) { 
+          console.log("error al intentar loggearse")
           throw new Error(result.msg)}  
         else {
             await fetch("/api/loggin", options(result));
@@ -32,7 +34,7 @@ const  handleSubmitLogin = async (event, url, userLogin, register = false) => {
             window.sessionStorage.setItem('userName',result.user);
             userLogin.setToken(window.sessionStorage.token)
             userLogin.setUserName(window.sessionStorage.userName)
-            alert(`${window.sessionStorage.userName} you have succesfully loggin!!`)
+            alert(`${window.sessionStorage.userName} Log in exitoso!`)
             window.location.replace("/")
     }
   }
