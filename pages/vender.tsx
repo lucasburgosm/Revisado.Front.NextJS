@@ -29,8 +29,8 @@ function vender() {
       setLoading(true);
       try { 
         const res = await fetch(`${apiUrl}/api/products`, {
+          method: 'GET',
           credentials: 'include'
-          // headers:  { 'Authorization': `${userLogin.token}`},
         });
         const resData = await res.json();
         if( res.status >= 400 && res.status < 600) { 
@@ -44,7 +44,7 @@ function vender() {
     fetchAssets();
   }, [])
 
-
+          // headers:  { 'Authorization': `${userLogin.token}`},
 
 if(userLogin?.token === null){  return (
     <div className={shopTitle} >
