@@ -10,7 +10,8 @@ export default ( req : NextApiRequest, res : NextApiResponse) => {
             {
                 httpOnly : true,
                 sameSite: 'none', 
-                secure : process.env.NODE_ENV !== "development",
+                secure : true,
+                // secure : process.env.NODE_ENV !== "development",
                 maxAge: 60 * 60 * 12, // 12 hora
                 path: "/"
             }) 
