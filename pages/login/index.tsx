@@ -7,9 +7,10 @@ import CustomLink from '../../src/components/CustomLink';
 
 
 const login  = () =>  {
+  const apiUrl = process.env.API_URL;
 
-const userLogin = userLoginContext();
-const url : string = "https://revisado-back.onrender.com/api/auth/login";
+  const userLogin = userLoginContext();
+  const url : string = `${apiUrl}/api/auth/login`;
 
 
 return(

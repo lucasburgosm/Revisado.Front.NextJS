@@ -11,9 +11,10 @@ interface Props {
 }
 
 const CustomModalFormVender : React.FC<Props> = ({ show ,handleClose, method, data } )   => {
+  const apiUrl = process.env.API_URL;
    
 
-  const url : string = data ? `https://revisado-back.onrender.com/api/products/${data?._id}` : `https://revisado-back.onrender.com/api/products` ;
+  const url : string = data ? `${apiUrl}/api/products/${data?._id}` : `${apiUrl}/api/products` ;
   const dataKeys : readonly string[] = ["brand", "price", "modelName", "nameToDisplay", "details","modelNumber"] ;
   
   const MyButton = (method :  "POST" | "PATCH" | "DELETE")  => {

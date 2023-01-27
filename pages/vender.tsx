@@ -8,7 +8,12 @@ import CustomModalFormProducts from '../src/components/CustomModalFormProducts';
 import { Products } from '../Interface/interface';
 
 
+
+
+
 function vender() {
+
+  const apiUrl = process.env.API_URL;
 
   const userLogin = userLoginContext();
   const [data, setData] = useState<null | any>(false);
@@ -20,17 +25,16 @@ function vender() {
 
   useEffect(() => {
     const fetchAssets = async () => {
+      
       setLoading(true);
       try { 
-        const res = await fetch('https://revisado-back.onrender.com/api/products', {
-          credentials: "include",
-          headers:  { 'Authorization': `${userLogin.token}`},
+        const res = await fetch(`${apiUrl}/api/products`, {
+          credentials: 'include'
+          // headers:  { 'Authorization': `${userLogin.token}`},
         });
         const resData = await res.json();
-        if( res.status >= 400 && res.status < 499) { 
+        if( res.status >= 400 && res.status < 600) { 
           throw new Error(resData.msg)}
-        if( res.status >= 500) { 
-          throw new Error(resData.msg)}  
         setData(resData);
         setLoading(false);
       } catch (error) { 
@@ -39,6 +43,8 @@ function vender() {
     }
     fetchAssets();
   }, [])
+
+
 
 if(userLogin?.token === null){  return (
     <div className={shopTitle} >

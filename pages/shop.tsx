@@ -4,6 +4,8 @@ import { Products } from '../Interface/interface';
 import {Modal, Form, Button} from 'react-bootstrap';
 const {shopTitle, productListContainer } = require('../styles/Shop.module.css');
 
+
+
 type Props = {    
     products : Products[],
     nbHits?: number,
@@ -12,7 +14,9 @@ type Props = {
    
 }
 export const getServerSideProps: GetServerSideProps<{ data: Props }> = async () => {
-  const res = await fetch('https://revisado-back.onrender.com/api/products/all', {
+  const apiUrl = process.env.API_URL;
+  
+  const res = await fetch(`${apiUrl}/api/products/all`, {
       method: 'GET',
   });
   const data : Props = await res.json()

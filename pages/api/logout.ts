@@ -9,6 +9,7 @@ export default ( req : NextApiRequest, res : NextApiResponse) => {
             "token", "",
             {
                 httpOnly : true,
+                sameSite: 'none', 
                 secure : process.env.NODE_ENV !== "development",
                 expires : new Date(0),
                 path: "/"

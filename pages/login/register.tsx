@@ -5,8 +5,10 @@ import handleSubmitLogin from '../../src/components/handleSubmitLogin'
 
 
 const register  = () =>  {
+  const apiUrl = process.env.API_URL;
 
-const url : string = "https://revisado-back.onrender.com/api/auth/register"; 
+const url : string = `${apiUrl}/api/auth/register`; 
+
 const userLogin = userLoginContext();    
 
 return(

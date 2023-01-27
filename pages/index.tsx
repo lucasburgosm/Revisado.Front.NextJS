@@ -5,8 +5,9 @@ import heroImg from  '../public/heroImg.png'
 import separator1 from '../public/Separator1.svg'
 
 
+
 const Home: NextPage = () => {
- 
+
   return (
   <>
     <div className={styles.Hero}>
