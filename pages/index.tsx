@@ -12,8 +12,8 @@ const Home: NextPage = () => {
   <>
     <div className={styles.Hero}>
       <div className={styles.heroLeft}> 
-        <div className={styles.sub1}> Compra con <mark style={{fontWeight:700, background:'none'}}>confianza.</mark></div>
-        <div className={styles.sub2}> Vende sin  <mark style={{fontWeight:700, background:'none'}}>esfuerzo</mark></div>
+        <div className={styles.sub1}>Compra con<mark style={{fontWeight:700, background:'none'}}>confianza.</mark></div>
+        <div className={styles.sub2}>Vende sin<mark style={{fontWeight:700, background:'none'}}>esfuerzo</mark></div>
       </div>
       <Image src={heroImg} alt="heroimg" className={styles.heroImg } ></Image>
     </div>
