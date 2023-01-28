@@ -3,26 +3,58 @@ import { userLoginContext} from "../Hooks/UseContextLogin";
 import CustomLink from './CustomLink';
 import revisadoLogo from '../../public/logo-revisado.png'
 import Image from 'next/image'
-import { useWindowWidth } from '../Hooks/useWindowWidth';
+
 
 
 
 const Navbar : FC = () => {
 
-    // const [width, setWidth] = useState(window.innerWidth);
+    interface Size 
+    {
+        width: number;
+        height: number;
+    }
 
-    // useEffect(() => {
-    //   const handleResize = () => setWidth(window.innerWidth);
-    //   window.addEventListener('resize', handleResize);
-    //   return () => {
-    //     window.removeEventListener('resize', handleResize);
-    //   };
-    // }, []);
+    const [size, setSize] = useState<Size>();
 
-    const width = 500;
+    //setter
+    const resizeHanlder = () => 
+    {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+    
+        setSize({width: width,height: height,});
+    };
+
+    // Listening for the window resize event
+    useEffect(() => {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        setSize({
+            width: width,
+            height: height,
+        });
+        window.addEventListener('resize', resizeHanlder);
+        
+        // Cleanup function
+        // Remove the event listener when the component is unmounted
+        return () => {
+        window.removeEventListener('resize', resizeHanlder);
+        }
+    }, []);
 
 
+
+    // closes the menu automatically over 850px wide
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+
+    useEffect(() => {
+        if(size?.width && size.width > 850){
+            setIsMenuOpen(false)
+        }
+    }, [size?.width])
+    
+
 
 
     const userLogin = userLoginContext();
@@ -47,7 +79,7 @@ return(
         <Image src={revisadoLogo} alt="logo" width="200" />
     </CustomLink>
 
-    { width > 850 ? 
+    { !size || size?.width > 850 ? 
         <div className='headerButtonsWrapper'>
 
             <CustomLink dir="/shop" text="Shop" className='navBarButtons' />
@@ -74,6 +106,8 @@ return(
 
     <div className={`side-menu ${isMenuOpen ? 'open' : 'closed'}`}>
         <div className='headerButtonsWrapper'>
+
+            <button className='loginButton' onClick={() => setIsMenuOpen(!isMenuOpen)}>Close Menu</button>
             <CustomLink dir="/shop" text="Shop" className='navBarButtons' />
             <CustomLink dir="/nosotros" text="Nosotros" className='navBarButtons' />
             <CustomLink dir="/vender" text="Vender" className='navBarButtons nav-item dropdown' />            
