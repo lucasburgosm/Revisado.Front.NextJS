@@ -1,7 +1,8 @@
 import { useLayoutEffect, useState } from 'react';
 
-export const useWindowWidth = (): number => {
-  const [width, setWidth] = useState(window.innerWidth);
+export const useWindowWidth = () => {
+
+  const [width, setWidth] = useState<number>();
 
   useLayoutEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);

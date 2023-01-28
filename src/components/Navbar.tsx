@@ -9,16 +9,20 @@ import { useWindowWidth } from '../Hooks/useWindowWidth';
 
 const Navbar : FC = () => {
 
-    //checks width constantly
-    const width = useWindowWidth();
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    // const [width, setWidth] = useState(window.innerWidth);
 
-    useEffect(() => {
-        if (width > 850) {
-            setIsMenuOpen(false);
-        }
-    }, [width]);
+    // useEffect(() => {
+    //   const handleResize = () => setWidth(window.innerWidth);
+    //   window.addEventListener('resize', handleResize);
+    //   return () => {
+    //     window.removeEventListener('resize', handleResize);
+    //   };
+    // }, []);
 
+    const width = 500;
+
+
+    const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
 
     const userLogin = userLoginContext();
