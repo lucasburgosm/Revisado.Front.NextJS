@@ -14,6 +14,7 @@ type Props = {
 export const getServerSideProps: GetServerSideProps<{ data: Props }> = async () => {
   const res = await fetch('https://revisado-back.onrender.com/api/products/all', {
       method: 'GET',
+      credentials: "include",
   });
   const data : Props = await res.json()
   return {

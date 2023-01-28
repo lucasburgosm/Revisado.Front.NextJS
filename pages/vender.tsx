@@ -8,6 +8,7 @@ import CustomModalFormProducts from '../src/components/CustomModalFormProducts';
 import { Products } from '../Interface/interface';
 
 
+
 function vender() {
 
   const userLogin = userLoginContext();
@@ -22,15 +23,11 @@ function vender() {
     const fetchAssets = async () => {
       setLoading(true);
       try { 
-        const res = await fetch('https://revisado-back.onrender.com/api/products', {
-          credentials: "include",
-          headers:  { 'Authorization': `${userLogin.token}`},
-        });
+        const res = await fetch('api/getProducts', { credentials: 'include'});
         const resData = await res.json();
-        if( res.status >= 400 && res.status < 499) { 
+        console.log(resData)
+        if( res.status >= 400 && res.status < 600) { 
           throw new Error(resData.msg)}
-        if( res.status >= 500) { 
-          throw new Error(resData.msg)}  
         setData(resData);
         setLoading(false);
       } catch (error) { 
@@ -46,6 +43,7 @@ if(userLogin?.token === null){  return (
     </div> )
   }
 if (!data) return <p>No se pudo conectar con el servidor, intente mas tarde</p>
+
 if (isLoading) return <p>Loading...</p>
 
   const products : Products[]   = data.Products;
