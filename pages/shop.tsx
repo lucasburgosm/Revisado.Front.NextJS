@@ -18,6 +18,7 @@ export const getServerSideProps: GetServerSideProps<{ data: Props }> = async () 
   
   const res = await fetch(`${apiUrl}/api/products/all`, {
       method: 'GET',
+      credentials: "include",
   });
   const data : Props = await res.json()
   return {

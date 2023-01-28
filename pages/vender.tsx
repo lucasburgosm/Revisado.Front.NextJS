@@ -11,6 +11,7 @@ import { Products } from '../Interface/interface';
 
 
 
+
 function vender() {
 
   const apiUrl = process.env.API_URL;
@@ -28,12 +29,9 @@ function vender() {
       
       setLoading(true);
       try { 
-        const res = await fetch(`${apiUrl}/api/products`, {
-          method: 'GET',
-          credentials: 'include'
-        });
+        const res = await fetch('api/getProducts', { credentials: 'include'});
         const resData = await res.json();
-        if( res.status >= 400 && res.status < 600) { 
+        if( res.status >= 400 && res.status < 499) { 
           throw new Error(resData.msg)}
         setData(resData);
         setLoading(false);
@@ -52,6 +50,7 @@ if(userLogin?.token === null){  return (
     </div> )
   }
 if (!data) return <p>No se pudo conectar con el servidor, intente mas tarde</p>
+
 if (isLoading) return <p>Loading...</p>
 
   const products : Products[]   = data.Products;
