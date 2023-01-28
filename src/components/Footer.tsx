@@ -1,9 +1,10 @@
 import {FC} from 'react';
 
+
 const Footer: FC  = () => {
 return(
    <footer>
-    <p>Thank you for visiting</p>
+         This is the footer
    </footer>
 )
 

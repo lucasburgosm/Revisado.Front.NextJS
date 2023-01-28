@@ -1,4 +1,5 @@
 import '../styles/globals.css'
+import '../styles/footer.scss'
 import type { AppProps } from 'next/app'
 import Layout from '../src/components/Layout'
 import UseContextLogin from '../src/Hooks/UseContextLogin'

@@ -17,7 +17,12 @@ const Home: NextPage = () => {
       </div>
       <Image src={heroImg} alt="heroimg" className={styles.heroImg } ></Image>
     </div>
-    <Image src={separator1} alt="separator" className={styles.separator }/>
+
+    <div className={styles.separatorsParent}>
+        <Image src={separator1} alt="separator" className={styles.separator }/>
+        <Image src={separator1} alt="separator" className={styles.separator2 }/>
+    </div>
+
   </>
 )}
 

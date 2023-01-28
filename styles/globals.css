@@ -53,8 +53,8 @@ form {
   background-color: rgb(255, 255, 255);
   width: 100%;
   padding-bottom: 50px;
-
 }
+
 .pageContent{
   min-height: 90vh;
   height: auto;
@@ -62,7 +62,7 @@ form {
   width: 90vw;
 
   margin-top: 30px;
-  padding-bottom: 25px;
+  /* padding-bottom: 5px; */
 
   display: flex;
   flex-direction: column;
