@@ -93,14 +93,46 @@ form {
 
 .headerButtonsWrapper{
   display: flex;
-  justify-content: space-between;
+  
+  justify-content: flex-end;
+  gap: 40px;
   align-items: center;
   text-align: center;
   vertical-align: middle;
-  gap: 15px;
+
   width: 60%;
   margin-top: 10px;
+
+  width: 100%;
 }
+@media only screen and (max-width: 850px) {
+    .headerButtonsWrapper {
+      flex-direction: column;
+
+    }
+  }
+
+.side-menu {
+  padding-top: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  overflow: auto;
+  background-color: #f1f1f1;
+  transition: transform 0.3s ease-out;
+  transform: translateX(-100%);
+  z-index: 1;
+}
+
+.side-menu.open {
+  transform: translateX(0);
+}
+
+
+
+
 
 button{
   font-size: 15px;
