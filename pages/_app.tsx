@@ -10,23 +10,23 @@ import Router from "next/router";
 
 function MyApp({ Component, pageProps, ...AppProps }: AppProps) {
     const [loading, setLoading] = useState(false)
-    Router.events.on("routeChangeStart", (url) => {setLoading(true)});
-    Router.events.on("routeChangeComplete", (url) => {setLoading(false)});
+    Router.events.on("routeChangeStart", (url) => { setLoading(true) });
+    Router.events.on("routeChangeComplete", (url) => { setLoading(false) });
 
-const getContent = () => {
-        if ([`/nosotros`].includes(AppProps.router.pathname)) 
-            { return  (<Component {...pageProps} /> )}
-    return (
+    const getContent = () => {
+        if ([`/nosotros`].includes(AppProps.router.pathname)) { return (<Component {...pageProps} />) }
+        return (
             <Layout>
-                {loading ? 
-                <p> is loading</p> 
-                : 
-                <Component {...pageProps} />}
+                {loading ?
+                    <p> is loading</p>
+                    :
+                    <Component {...pageProps} />}
             </Layout>
-    )}
-        
-return (
- 
+        )
+    }
+
+    return (
+
         <div className="allPages">
             <div className='pageContainer'>
                 <div className='pageContent'>
@@ -35,8 +35,9 @@ return (
                     </UseContextLogin>
                 </div>
             </div>
-        </div>  
-)}
+        </div>
+    )
+}
 
 
 export default MyApp
