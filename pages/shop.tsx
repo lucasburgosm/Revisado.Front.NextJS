@@ -1,7 +1,7 @@
-import { InferGetServerSidePropsType, GetServerSideProps } from 'next'
+import {GetServerSideProps } from 'next'
 import Product from '../src/components/Product';
-import { Products } from '../Interface/interface';
-import {Modal, Form, Button} from 'react-bootstrap';
+import {Products } from '../Interface/interface';
+import {Button} from 'react-bootstrap';
 const {shopTitle, productListContainer } = require('../styles/Shop.module.css');
 
 
@@ -13,6 +13,7 @@ type Props = {
     userID?: string,
    
 }
+
 export const getServerSideProps: GetServerSideProps<{ data: Props }> = async () => {
   const apiUrl = process.env.API_URL;
   
@@ -29,29 +30,26 @@ export const getServerSideProps: GetServerSideProps<{ data: Props }> = async () 
 }
 
 
-function shop({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) : JSX.Element {
+// replaced InferGetServerSidePropsType<typeof getServerSideProps>) -> { data: Props }
+  export default function shop({ data }: { data: Props }): JSX.Element {
 
 
-if(!data){return <p>No se pudo conectar con el servidor, intente mas tarde</p>}  
+  if(!data){return <p>No se pudo conectar con el servidor, intente mas tarde</p>}  
 
-const {products, nbHits, userID, queryObject} = data;
-const productsList : JSX.Element[] = products.map((product) : JSX.Element =>{  return ( 
-                <Product key={product._id}  props={product}>
-                    <Button  variant="outline-secondary" >Comprar</Button>
-                </Product> )})
+  const {products} = data;
+  const productsList : JSX.Element[] = products.map((product) : JSX.Element =>{  return ( 
+                  <Product key={product._id}  props={product}>
+                      <Button  variant="outline-secondary" >Comprar</Button>
+                  </Product> )})
 
-return( 
-    <> 
-      <div className={shopTitle} >
-        Productos disponibles
-      </div>
-      <div className={productListContainer}>
-        {productsList}
-      </div>
-    </>
-)}
-
-
-
-
-export default shop;
+  return( 
+      <> 
+        <div className={shopTitle} >
+          Productos disponibles
+        </div>
+        <div className={productListContainer}>
+          {productsList}
+        </div>
+      </>
+  )
+}

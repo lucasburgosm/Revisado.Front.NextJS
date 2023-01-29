@@ -12,7 +12,7 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
                 secure : process.env.NODE_ENV !== "development",
                 maxAge: 60 * 60 * 12, // 1 hora,
                 path: "/",
-                samesite:"lax",
+                // samesite:"lax", -> it doesnt exist in serialize
             }) 
     )
     res.status(200).json({success : true})

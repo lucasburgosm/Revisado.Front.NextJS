@@ -4,16 +4,24 @@ import type { AppProps } from 'next/app'
 import Layout from '../src/components/Layout'
 import UseContextLogin from '../src/Hooks/UseContextLogin'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import SSRProvider from 'react-bootstrap/SSRProvider';
+import { useState } from 'react';
+import Router from "next/router";
+
 
 function MyApp({ Component, pageProps, ...AppProps }: AppProps) {
+    const [loading, setLoading] = useState(false)
+    Router.events.on("routeChangeStart", (url) => {setLoading(true)});
+    Router.events.on("routeChangeComplete", (url) => {setLoading(false)});
 
 const getContent = () => {
         if ([`/nosotros`].includes(AppProps.router.pathname)) 
             { return  (<Component {...pageProps} /> )}
     return (
             <Layout>
-                <Component {...pageProps} />
+                {loading ? 
+                <p> is loading</p> 
+                : 
+                <Component {...pageProps} />}
             </Layout>
     )}
         

@@ -19,8 +19,10 @@ export default async ( req : NextApiRequest, res : NextApiResponse) => {
             if (!response.ok) {
                 throw new Error('Response not ok');
             }
+
             const data = await response.json();
             res.json(data);
+            
         } catch (error) {
             res.status(500).json({ error });
     }
