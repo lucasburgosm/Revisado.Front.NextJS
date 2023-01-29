@@ -3,6 +3,10 @@ import { userLoginContext} from "../Hooks/UseContextLogin";
 import CustomLink from './CustomLink';
 import revisadoLogo from '../../public/logo-revisado.png'
 import Image from 'next/image'
+import openMenuIcon from 'public/open-menu.svg'
+import closeMenuIcon from '../../public/close-menu.svg'
+
+
 
 
 
@@ -99,7 +103,10 @@ return(
 
         </div>
     :
-    <button onClick={() => setIsMenuOpen(!isMenuOpen)}>Toggle Menu</button>}
+    // <button onClick={() => setIsMenuOpen(!isMenuOpen)}>Toggle Menu</button>
+    <Image onClick={() => setIsMenuOpen(!isMenuOpen)} src={openMenuIcon} style={{ maxWidth: "35", maxHeight: "35px", width: "5vw", height: "auto", paddingTop:'10px', cursor:'pointer' }} alt="open menu icon"/>
+
+    }
 
 
 
@@ -107,7 +114,7 @@ return(
     <div className={`side-menu ${isMenuOpen ? 'open' : 'closed'}`}>
         <div className='headerButtonsWrapper'>
 
-            <button className='loginButton' onClick={() => setIsMenuOpen(!isMenuOpen)}>Close Menu</button>
+            <Image onClick={() => setIsMenuOpen(!isMenuOpen)} src={closeMenuIcon} style={{ maxWidth: "35", maxHeight: "35px", width: "5vw", height: "auto", paddingTop:'10px', cursor:'pointer' }} alt="open menu icon"/>
             <CustomLink dir="/shop" text="Shop" className='navBarButtons' />
             <CustomLink dir="/nosotros" text="Nosotros" className='navBarButtons' />
             <CustomLink dir="/vender" text="Vender" className='navBarButtons nav-item dropdown' />            
