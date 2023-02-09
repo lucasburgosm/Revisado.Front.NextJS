@@ -1,15 +1,15 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { userLoginContext} from '../../src/Hooks/UseContextLogin';
+import { useLoginContext} from '../../src/Hooks/UseContextLogin';
 import handleSubmitLogin from '../../src/components/handleSubmitLogin'
 import CustomLink from '../../src/components/CustomLink';
 
 
 
-const login  = () =>  {
+const Login  = () =>  {
   const apiUrl = process.env.API_URL;
 
-  const userLogin = userLoginContext();
+  const userLogin = useLoginContext();
   const url : string = `${apiUrl}/api/auth/login`;
 
 
@@ -38,4 +38,4 @@ return(
     )
 }
 
-export default login;
+export default Login;

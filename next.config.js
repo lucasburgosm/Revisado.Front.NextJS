@@ -18,7 +18,6 @@ const nextConfig = {
   swcMinify: true,
   env: {
     API_URL: 'https://revisado-back.onrender.com'
-    // API_URL: 'http://localhost:3001'
   }
 }
 

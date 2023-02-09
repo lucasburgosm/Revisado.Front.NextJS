@@ -1,5 +1,5 @@
 import { FC, useState, useEffect } from 'react';
-import { userLoginContext} from "../Hooks/UseContextLogin";
+import { useLoginContext} from "../Hooks/UseContextLogin";
 import CustomLink from './CustomLink';
 import revisadoLogo from '../../public/logo-revisado.png'
 import Image from 'next/image'
@@ -61,7 +61,7 @@ const Navbar : FC = () => {
 
 
 
-    const userLogin = userLoginContext();
+    const userLogin = useLoginContext();
     const handleClickLogout = async (event : any) => {
         event.preventDefault();
         try { 
