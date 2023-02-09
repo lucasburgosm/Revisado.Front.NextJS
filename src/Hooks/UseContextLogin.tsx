@@ -31,6 +31,6 @@ const UseContextLogin : FC<prop> = ({ children }) => {
     );
   };
 
-  export const userLoginContext = () => useContext(AppCtx);
+  export const useLoginContext = () => useContext(AppCtx);
 
   export default UseContextLogin;
