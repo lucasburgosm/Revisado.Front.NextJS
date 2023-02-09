@@ -1,5 +1,5 @@
 import Product from '../src/components/Product';
-import { useState, useEffect } from 'react';
+import react, { useState, useEffect } from 'react';
 import { useLoginContext } from "../src/Hooks/UseContextLogin";
 const { shopTitle, productListContainer } = require('../styles/Shop.module.css')
 import CustomLink from '../src/components/CustomLink';
@@ -9,7 +9,7 @@ import { Products } from '../Interface/interface';
 
 
 
-export default function Vender()  {
+ function Vender()  {
 
   const userLogin = useLoginContext();
   const [data, setData] = useState<null | any>(false);
@@ -87,3 +87,10 @@ export default function Vender()  {
 }
 
 
+export default function vender() {
+  return(
+    <div>
+      <Vender></Vender>
+    </div>
+  )
+}
