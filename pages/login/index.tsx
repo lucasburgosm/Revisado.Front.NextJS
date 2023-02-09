@@ -6,7 +6,7 @@ import CustomLink from '../../src/components/CustomLink';
 
 
 
-const login  = () =>  {
+const Login  = () =>  {
   const apiUrl = process.env.API_URL;
 
   const userLogin = useLoginContext();
@@ -38,4 +38,4 @@ return(
     )
 }
 
-export default login;
+export default Login;

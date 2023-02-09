@@ -4,7 +4,7 @@ import handleSubmitLogin from '../../src/components/handleSubmitLogin'
 
 
 
-const register  = () =>  {
+const Register  = () =>  {
   const apiUrl = process.env.API_URL;
 
 const url : string = `${apiUrl}/api/auth/register`; 
@@ -36,4 +36,4 @@ return(
   )
 }
     
-export default register;
+export default Register;
