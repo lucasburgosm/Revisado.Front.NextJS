@@ -1,6 +1,6 @@
 import Product from '../src/components/Product';
 import { useState, useEffect } from 'react';
-import { userLoginContext } from "../src/Hooks/UseContextLogin";
+import { useLoginContext } from "../src/Hooks/UseContextLogin";
 const { shopTitle, productListContainer } = require('../styles/Shop.module.css')
 import CustomLink from '../src/components/CustomLink';
 import { Button, ButtonGroup } from 'react-bootstrap';
@@ -10,13 +10,11 @@ import { Products } from '../Interface/interface';
 
 
 
-
-
-function vender() {
+function Vender() {
 
   const apiUrl = process.env.API_URL;
 
-  const userLogin = userLoginContext();
+  const userLogin = useLoginContext();
   const [data, setData] = useState<null | any>(false);
   const [singleProduct, setSingleProduct] = useState<undefined | Products>(undefined);
   const [isLoading, setLoading] = useState<boolean>(false);
@@ -93,4 +91,4 @@ function vender() {
 
 
 
-export default vender;
+export default Vender;
