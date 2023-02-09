@@ -16,6 +16,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  env: {
+    API_URL: 'https://revisado-back.onrender.com'
+  }
 }
 
 module.exports = nextConfig

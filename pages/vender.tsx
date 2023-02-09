@@ -8,7 +8,8 @@ import CustomModalFormProducts from '../src/components/CustomModalFormProducts';
 import { Products } from '../Interface/interface';
 
 
-function Vender() {
+
+export default function Vender()  {
 
   const userLogin = useLoginContext();
   const [data, setData] = useState<null | any>(false);
@@ -86,5 +87,3 @@ function Vender() {
 }
 
 
-
-export default Vender;
