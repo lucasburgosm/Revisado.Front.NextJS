@@ -11,6 +11,7 @@ const handleSubmitProducts = async (event : any, url : string, method : string) 
         nameToDisplay: event?.target?.nameToDisplay?.value,
         details: event?.target?.detail?.value,
         modelNumber: event?.target?.modelNumber?.value,
+        url:url
       }
       const options = (jsonData : Products, method : string) : any => { 
         return { 
@@ -22,7 +23,7 @@ const handleSubmitProducts = async (event : any, url : string, method : string) 
         body: JSON.stringify(jsonData),
         }
       }
-      const response = await fetch(url, options(jsonData, method))
+      const response = await fetch('api/post_fetchProducts', options(jsonData, method))
       const result = await response.json() 
         if( response.status >= 400 && response.status < 600) { 
           throw new Error(result.msg)}

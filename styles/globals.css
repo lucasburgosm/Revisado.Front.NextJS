@@ -53,8 +53,8 @@ form {
   background-color: rgb(255, 255, 255);
   width: 100%;
   padding-bottom: 50px;
-
 }
+
 .pageContent{
   min-height: 90vh;
   height: auto;
@@ -62,7 +62,7 @@ form {
   width: 90vw;
 
   margin-top: 30px;
-  padding-bottom: 25px;
+  /* padding-bottom: 5px; */
 
   display: flex;
   flex-direction: column;
@@ -93,14 +93,46 @@ form {
 
 .headerButtonsWrapper{
   display: flex;
-  justify-content: space-between;
+  
+  justify-content: flex-end;
+  gap: 40px;
   align-items: center;
   text-align: center;
   vertical-align: middle;
-  gap: 15px;
+
   width: 60%;
   margin-top: 10px;
+
+  width: 100%;
 }
+@media only screen and (max-width: 850px) {
+    .headerButtonsWrapper {
+      flex-direction: column;
+
+    }
+  }
+
+.side-menu {
+  padding-top: 50px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  overflow: auto;
+  background-color: #f1f1f1;
+  transition: transform 0.2s ease-out;
+  transform: translateX(100%);
+  z-index: 1;
+}
+
+.side-menu.open {
+  transform: translateX(0);
+}
+
+
+
+
 
 button{
   font-size: 15px;

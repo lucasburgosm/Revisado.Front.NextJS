@@ -23,9 +23,7 @@ export interface Products  {
     __v?: number,
 }
 
-export const products : Products = {
-}
-    
+
 export interface UserLoggin { 
     id?: number | null  
     token : string | null   

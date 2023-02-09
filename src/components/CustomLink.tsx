@@ -1,13 +1,12 @@
 import Link from 'next/link';
 import {FC} from 'react';
-//hola
 
 
 interface prop {
     children?: JSX.Element,
     dir : string, 
     text? : string, 
-    className? : string | undefined, 
+    className? : string, 
     custom? : boolean,
 }
 const CustomLink : FC<prop> = ({dir , text , className , custom = false, children})  => {  
