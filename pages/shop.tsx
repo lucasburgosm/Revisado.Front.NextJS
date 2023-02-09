@@ -1,4 +1,4 @@
-import { GetServerSideProps } from 'next'
+import { GetStaticProps } from 'next'
 import Product from '../src/components/Product';
 import { Products } from '../Interface/interface';
 import { Button } from 'react-bootstrap';
@@ -13,7 +13,7 @@ type Props = {
   userID?: string,
 }
 
-export const getServerSideProps: GetServerSideProps<{ data: Props }> = async () => {
+export const getStaticProps: GetStaticProps<{ data: Props }> = async () => {
   const apiUrl = process.env.API_URL;
 
   const res = await fetch(`${apiUrl}/api/products/all`, {
@@ -25,6 +25,7 @@ export const getServerSideProps: GetServerSideProps<{ data: Props }> = async () 
     props: {
       data,
     },
+    revalidate: 10, // In seconds
   }
 }
 

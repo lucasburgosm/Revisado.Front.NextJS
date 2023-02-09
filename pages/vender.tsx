@@ -51,9 +51,10 @@ function vender() {
         Para vender, ingresa o registrate <CustomLink dir="/login/" text="Aqui" className="btn btn-success btn-sm " />
       </div>)
   }
+  if (isLoading) return <p>Loading...</p>
   if (!data) return <p>No se pudo conectar con el servidor, intente mas tarde</p>
 
-  if (isLoading) return <p>Loading...</p>
+ 
 
   const products: Products[] = data.Products;
   const productList: JSX.Element[] = products?.map((product: any): JSX.Element => {
