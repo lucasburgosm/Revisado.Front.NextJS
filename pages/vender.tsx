@@ -8,7 +8,7 @@ import CustomModalFormProducts from '../src/components/CustomModalFormProducts';
 import { Products } from '../Interface/interface';
 
 
-function vender() {
+function Vender() {
 
   const userLogin = useLoginContext();
   const [data, setData] = useState<null | any>(false);
