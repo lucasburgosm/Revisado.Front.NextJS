@@ -87,7 +87,7 @@ import { Products } from '../Interface/interface';
 }
 
 
-export default function vender() {
+export default function Vender1() {
   return(
     <div>
       <Vender></Vender>
