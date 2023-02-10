@@ -7,7 +7,7 @@ const { shopTitle, productListContainer } = require('../styles/Shop.module.css')
 
 
 
-export default function shop2({ data }: { data: Props }): JSX.Element {
+export default function Shop2({ data }: { data: Props }): JSX.Element {
 
     useEffect(() => {
         const fetchData = async () => {

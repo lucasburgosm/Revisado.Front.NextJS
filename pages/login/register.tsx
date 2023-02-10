@@ -1,15 +1,15 @@
 import {Button, Form} from 'react-bootstrap';
-import { userLoginContext} from '../../src/Hooks/UseContextLogin';
+import { useLoginContext} from '../../src/Hooks/UseContextLogin';
 import handleSubmitLogin from '../../src/components/handleSubmitLogin'
 
 
 
-const register  = () =>  {
+const Register  = () =>  {
   const apiUrl = process.env.API_URL;
 
 const url : string = `${apiUrl}/api/auth/register`; 
 
-const userLogin = userLoginContext();    
+const userLogin = useLoginContext();    
 
 return(
     <Form onSubmit={()=> handleSubmitLogin(window.event,url, userLogin, true)}>
@@ -36,4 +36,4 @@ return(
   )
 }
     
-    export default register;
+export default Register;
