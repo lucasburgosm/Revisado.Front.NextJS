@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import {FC} from 'react';
 
-
+// is a custom style button that links to another page
 interface prop {
     children?: JSX.Element,
     dir : string, 
