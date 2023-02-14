@@ -23,9 +23,18 @@ const Home: NextPage = () => {
         <Image src={separator1} alt="separator" className={styles.separator2} />
       </div>
 
+      <div className={styles.Features}>
+        <h4>Lista de Features</h4>
+        <ul>
+          <li>Registration & Login &#10003;</li>
+          <li>Create new product &#10003;</li>
+        </ul>
+      </div>
+
     </>
   )
 }
+
 
 export default Home
 

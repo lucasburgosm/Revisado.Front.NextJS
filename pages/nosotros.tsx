@@ -1,7 +1,7 @@
 const Nosotros = () => {
     return (
-        <div>
-            <h1>Nosotros</h1>
+        <div style={{marginTop:"100px"}}>
+            <h1>Pagina en desarrollo</h1>
         </div>
     )
 }

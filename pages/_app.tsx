@@ -10,8 +10,8 @@ import Router from "next/router";
 
 
 export default function MyApp({ Component, pageProps, ...AppProps }: AppProps) {
-    const [loading, setLoading] = useState(false)
-    const [targetRoute, setTargetRoute] = useState("");
+    const [loading, setLoading] = useState<boolean | null>(false);
+    const [targetRoute, setTargetRoute] = useState<string | null>("");
     Router.events.on("routeChangeStart", (url) => {
         setLoading(true);
         setTargetRoute(url);
@@ -22,7 +22,7 @@ export default function MyApp({ Component, pageProps, ...AppProps }: AppProps) {
 
     const getContent = () => {
 
-        if ([`/nosotros`].includes(AppProps.router.pathname)) { return (<Component {...pageProps} />) }
+        // if ([`/nosotros`].includes(AppProps.router.pathname)) { return (<Component {...pageProps} />) }
         if (targetRoute === "/shop") {
             return (
                 <Layout>
