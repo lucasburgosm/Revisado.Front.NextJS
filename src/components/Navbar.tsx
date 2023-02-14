@@ -80,7 +80,7 @@ return(
 <div className='homeHeader'>
 
     <CustomLink dir ="/" custom={true}>
-        <Image src={revisadoLogo} alt="logo" width="200" />
+        <Image src={revisadoLogo} alt="logo" width="200" style={{marginBottom:"4px"}} />
     </CustomLink>
 
     { !size || size?.width > 850 ? 
@@ -96,7 +96,7 @@ return(
                 <> 
                     <CustomLink dir="/" text={`Hola ${userLogin.userName.slice(0,5)}!!`}/> 
                     <CustomLink  dir="/login/logout" custom={true}> 
-                    <button className='loginButton' onClick={handleClickLogout}> Logout </button> 
+                        <button className='loginButton' onClick={handleClickLogout}> Logout </button> 
                     </CustomLink>
                 </> 
             }
